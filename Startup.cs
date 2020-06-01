@@ -28,6 +28,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using FluentValidation.AspNetCore;
 using repopractise.Cache;
+using repopractise.Services.Network;
+using repopractise.Network.Api;
 
 namespace repopractise
 {
@@ -92,6 +94,10 @@ namespace repopractise
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IUserServices, UserServices>();
+
+            services.AddHttpClient<IApiClient, ApiClient>();
+
+            services.AddScoped<IWebService, WebService>();
 
         }
 
